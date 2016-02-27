@@ -1,0 +1,25 @@
+{
+  "name": "three-transformcontrols",
+  "version": "0.0.0",
+  "description": "A module for using THREE.TransformControls with nodejs",
+  "main": "index.js",
+  "dependencies": {
+    "three": "0.74.0"
+  },
+  "scripts": {
+    "test": "node_modules/mocha/bin/mocha"
+  },
+  "keywords": [
+    "threejs",
+    "3d",
+    "transform",
+    "controls",
+    "webGL"
+  ],
+  "author": "Lloyd Henning",
+  "license": "MIT",
+  "devDependencies": {
+    "mocha": "^2.4.5",
+    "mock-browser": "^0.92.10"
+  }
+}
