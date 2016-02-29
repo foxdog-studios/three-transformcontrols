@@ -623,6 +623,7 @@ THREE.TransformControls = function ( camera, domElement ) {
   this.rotationSnap = null;
   this.space = "world";
   this.size = 1;
+  this.scaleDivisor = 50;
   this.axis = null;
 
   var scope = this;
@@ -974,7 +975,7 @@ THREE.TransformControls = function ( camera, domElement ) {
 
         if ( scope.axis === "XYZ" ) {
 
-          scale = 1 + ( ( point.y ) / 50 );
+          scale = 1 + ( ( point.y ) / scope.scaleDivisor );
 
           scope.object.scale.x = oldScale.x * scale;
           scope.object.scale.y = oldScale.y * scale;
@@ -984,9 +985,9 @@ THREE.TransformControls = function ( camera, domElement ) {
 
           point.applyMatrix4( tempMatrix.getInverse( worldRotationMatrix ) );
 
-          if ( scope.axis === "X" ) scope.object.scale.x = oldScale.x * ( 1 + point.x / 50 );
-          if ( scope.axis === "Y" ) scope.object.scale.y = oldScale.y * ( 1 + point.y / 50 );
-          if ( scope.axis === "Z" ) scope.object.scale.z = oldScale.z * ( 1 + point.z / 50 );
+          if ( scope.axis === "X" ) scope.object.scale.x = oldScale.x * ( 1 + point.x / scope.scaleDivisor );
+          if ( scope.axis === "Y" ) scope.object.scale.y = oldScale.y * ( 1 + point.y / scope.scaleDivisor );
+          if ( scope.axis === "Z" ) scope.object.scale.z = oldScale.z * ( 1 + point.z / scope.scaleDivisor );
 
         }
 
