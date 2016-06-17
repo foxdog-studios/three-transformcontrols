@@ -1,10 +1,10 @@
 {
   "name": "three-transformcontrols",
-  "version": "0.76.3",
+  "version": "0.76.4",
   "description": "A module for using THREE.TransformControls with nodejs",
   "main": "index.js",
   "dependencies": {
-    "three": "^0.76.1"
+    "three": ">=0.76.1"
   },
   "scripts": {
     "test": "node_modules/mocha/bin/mocha"
