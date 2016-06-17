@@ -5,11 +5,7 @@ A module for using THREE.TransformControls with nodejs
 See the [original](http://threejs.org/examples/#misc_controls_transform) for
 a demo.
 
-## Modifications
-
-- Added `scaleDivisor` parameter that changes the speed of the scaling, the
-  lower, the faster. This is to solve the problem of slow scaling with small
-  objects.
+Updated for THREE __R78__.
 
 ## Installation
 

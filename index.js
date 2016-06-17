@@ -8,8 +8,6 @@
 
 'use strict';
 
-var THREE = require('three');
-
 var GizmoMaterial = function ( parameters ) {
 
   THREE.MeshBasicMaterial.call( this );
@@ -283,15 +281,15 @@ THREE.TransformGizmoTranslate = function () {
   this.pickerGizmos = {
 
     X: [
-      [ new THREE.Mesh( new THREE.CylinderGeometry( 0.2, 0, 1, 4, 1, false ), pickerMaterial ), [ 0.6, 0, 0 ], [ 0, 0, - Math.PI / 2 ] ]
+      [ new THREE.Mesh( new THREE.CylinderBufferGeometry( 0.2, 0, 1, 4, 1, false ), pickerMaterial ), [ 0.6, 0, 0 ], [ 0, 0, - Math.PI / 2 ] ]
     ],
 
     Y: [
-      [ new THREE.Mesh( new THREE.CylinderGeometry( 0.2, 0, 1, 4, 1, false ), pickerMaterial ), [ 0, 0.6, 0 ] ]
+      [ new THREE.Mesh( new THREE.CylinderBufferGeometry( 0.2, 0, 1, 4, 1, false ), pickerMaterial ), [ 0, 0.6, 0 ] ]
     ],
 
     Z: [
-      [ new THREE.Mesh( new THREE.CylinderGeometry( 0.2, 0, 1, 4, 1, false ), pickerMaterial ), [ 0, 0, 0.6 ], [ Math.PI / 2, 0, 0 ] ]
+      [ new THREE.Mesh( new THREE.CylinderBufferGeometry( 0.2, 0, 1, 4, 1, false ), pickerMaterial ), [ 0, 0, 0.6 ], [ Math.PI / 2, 0, 0 ] ]
     ],
 
     XYZ: [
@@ -408,19 +406,19 @@ THREE.TransformGizmoRotate = function () {
   this.pickerGizmos = {
 
     X: [
-      [ new THREE.Mesh( new THREE.TorusGeometry( 1, 0.12, 4, 12, Math.PI ), pickerMaterial ), [ 0, 0, 0 ], [ 0, - Math.PI / 2, - Math.PI / 2 ] ]
+      [ new THREE.Mesh( new THREE.TorusBufferGeometry( 1, 0.12, 4, 12, Math.PI ), pickerMaterial ), [ 0, 0, 0 ], [ 0, - Math.PI / 2, - Math.PI / 2 ] ]
     ],
 
     Y: [
-      [ new THREE.Mesh( new THREE.TorusGeometry( 1, 0.12, 4, 12, Math.PI ), pickerMaterial ), [ 0, 0, 0 ], [ Math.PI / 2, 0, 0 ] ]
+      [ new THREE.Mesh( new THREE.TorusBufferGeometry( 1, 0.12, 4, 12, Math.PI ), pickerMaterial ), [ 0, 0, 0 ], [ Math.PI / 2, 0, 0 ] ]
     ],
 
     Z: [
-      [ new THREE.Mesh( new THREE.TorusGeometry( 1, 0.12, 4, 12, Math.PI ), pickerMaterial ), [ 0, 0, 0 ], [ 0, 0, - Math.PI / 2 ] ]
+      [ new THREE.Mesh( new THREE.TorusBufferGeometry( 1, 0.12, 4, 12, Math.PI ), pickerMaterial ), [ 0, 0, 0 ], [ 0, 0, - Math.PI / 2 ] ]
     ],
 
     E: [
-      [ new THREE.Mesh( new THREE.TorusGeometry( 1.25, 0.12, 2, 24 ), pickerMaterial ) ]
+      [ new THREE.Mesh( new THREE.TorusBufferGeometry( 1.25, 0.12, 2, 24 ), pickerMaterial ) ]
     ],
 
     XYZE: [
@@ -546,7 +544,7 @@ THREE.TransformGizmoScale = function () {
     ],
 
     XYZ: [
-      [ new THREE.Mesh( new THREE.BoxGeometry( 0.125, 0.125, 0.125 ), new GizmoMaterial( { color: 0xffffff, opacity: 0.25 } ) ) ]
+      [ new THREE.Mesh( new THREE.BoxBufferGeometry( 0.125, 0.125, 0.125 ), new GizmoMaterial( { color: 0xffffff, opacity: 0.25 } ) ) ]
     ]
 
   };
@@ -554,19 +552,19 @@ THREE.TransformGizmoScale = function () {
   this.pickerGizmos = {
 
     X: [
-      [ new THREE.Mesh( new THREE.CylinderGeometry( 0.2, 0, 1, 4, 1, false ), pickerMaterial ), [ 0.6, 0, 0 ], [ 0, 0, - Math.PI / 2 ] ]
+      [ new THREE.Mesh( new THREE.CylinderBufferGeometry( 0.2, 0, 1, 4, 1, false ), pickerMaterial ), [ 0.6, 0, 0 ], [ 0, 0, - Math.PI / 2 ] ]
     ],
 
     Y: [
-      [ new THREE.Mesh( new THREE.CylinderGeometry( 0.2, 0, 1, 4, 1, false ), pickerMaterial ), [ 0, 0.6, 0 ] ]
+      [ new THREE.Mesh( new THREE.CylinderBufferGeometry( 0.2, 0, 1, 4, 1, false ), pickerMaterial ), [ 0, 0.6, 0 ] ]
     ],
 
     Z: [
-      [ new THREE.Mesh( new THREE.CylinderGeometry( 0.2, 0, 1, 4, 1, false ), pickerMaterial ), [ 0, 0, 0.6 ], [ Math.PI / 2, 0, 0 ] ]
+      [ new THREE.Mesh( new THREE.CylinderBufferGeometry( 0.2, 0, 1, 4, 1, false ), pickerMaterial ), [ 0, 0, 0.6 ], [ Math.PI / 2, 0, 0 ] ]
     ],
 
     XYZ: [
-      [ new THREE.Mesh( new THREE.BoxGeometry( 0.4, 0.4, 0.4 ), pickerMaterial ) ]
+      [ new THREE.Mesh( new THREE.BoxBufferGeometry( 0.4, 0.4, 0.4 ), pickerMaterial ) ]
     ]
 
   };
@@ -623,7 +621,6 @@ THREE.TransformControls = function ( camera, domElement ) {
   this.rotationSnap = null;
   this.space = "world";
   this.size = 1;
-  this.scaleDivisor = 50;
   this.axis = null;
 
   var scope = this;
@@ -975,7 +972,7 @@ THREE.TransformControls = function ( camera, domElement ) {
 
         if ( scope.axis === "XYZ" ) {
 
-          scale = 1 + ( ( point.y ) / scope.scaleDivisor );
+          scale = 1 + ( ( point.y ) / Math.max( oldScale.x, oldScale.y, oldScale.z ) );
 
           scope.object.scale.x = oldScale.x * scale;
           scope.object.scale.y = oldScale.y * scale;
@@ -985,9 +982,9 @@ THREE.TransformControls = function ( camera, domElement ) {
 
           point.applyMatrix4( tempMatrix.getInverse( worldRotationMatrix ) );
 
-          if ( scope.axis === "X" ) scope.object.scale.x = oldScale.x * ( 1 + point.x / scope.scaleDivisor );
-          if ( scope.axis === "Y" ) scope.object.scale.y = oldScale.y * ( 1 + point.y / scope.scaleDivisor );
-          if ( scope.axis === "Z" ) scope.object.scale.z = oldScale.z * ( 1 + point.z / scope.scaleDivisor );
+          if ( scope.axis === "X" ) scope.object.scale.x = oldScale.x * ( 1 + point.x / oldScale.x );
+          if ( scope.axis === "Y" ) scope.object.scale.y = oldScale.y * ( 1 + point.y / oldScale.y );
+          if ( scope.axis === "Z" ) scope.object.scale.z = oldScale.z * ( 1 + point.z / oldScale.z );
 
         }
 
@@ -1105,17 +1102,32 @@ THREE.TransformControls = function ( camera, domElement ) {
 
   function onPointerUp( event ) {
 
+    event.preventDefault(); // Prevent MouseEvent on mobile
+
     if ( event.button !== undefined && event.button !== 0 ) return;
 
     if ( _dragging && ( scope.axis !== null ) ) {
 
       mouseUpEvent.mode = _mode;
-      scope.dispatchEvent( mouseUpEvent )
+      scope.dispatchEvent( mouseUpEvent );
 
     }
 
     _dragging = false;
-    onPointerHover( event );
+
+    if ( event instanceof TouchEvent ) {
+
+      // Force "rollover"
+
+      scope.axis = null;
+      scope.update();
+      scope.dispatchEvent( changeEvent );
+
+    } else {
+
+      onPointerHover( event );
+
+    }
 
   }
 
@@ -1137,6 +1149,7 @@ THREE.TransformControls = function ( camera, domElement ) {
 
 THREE.TransformControls.prototype = Object.create( THREE.Object3D.prototype );
 THREE.TransformControls.prototype.constructor = THREE.TransformControls;
+
 
 module.exports = THREE.TransformControls;
 
