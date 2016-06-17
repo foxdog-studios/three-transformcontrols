@@ -4,9 +4,10 @@
  * @author Lloyd Henning / https://eldog.me.uk
  *
  */
- /*jshint sub:true*/
 
 'use strict';
+
+var THREE = require('three');
 
 var GizmoMaterial = function ( parameters ) {
 
